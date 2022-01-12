@@ -1,8 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import axios from 'axios';
 // http://127.0.0.1:5000/getHolaMundo
 const App = () => {
+  useEffect(() => {
+    
+  }, []);
   const [img, setImg] = useState("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/25.png");
   const [form, setForm] = useState({
     name: 'nombre',
