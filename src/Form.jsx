@@ -25,7 +25,12 @@ const Formulario = () => {
         } catch (error) {
             console.log(error);
         }
-        console.log(response);
+        if (response.status === 200) {
+            const { data } = response;
+            console.log(data);
+        } else {
+
+        }
     }
 
     return (
