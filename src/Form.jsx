@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import axios from 'axios';
 
 const Formulario = () => {
@@ -8,6 +8,15 @@ const Formulario = () => {
         nombre: '',
         apellido: ''
     })
+    const [error, setError] = useState(false)
+
+    useEffect(() => {
+        if (datos.nombre > 3) {
+            setError(false)
+        } else {
+            setError(true)
+        }
+    }, [datos.nombre])
 
     const handleInputChange = (event) => {
         // console.log(event.target.name)
@@ -55,6 +64,7 @@ const Formulario = () => {
                 <div className="col-md-3">
                     <input type="text" placeholder="Nombre" className="form-control" onChange={handleInputChange} name="nombre"></input>
                 </div>
+                {error === true ? <p>Hay un error con tu nombre</p> : null}
                 <div className="col-md-3">
                     <input type="text" placeholder="Apellido" className="form-control" onChange={handleInputChange} name="apellido"></input>
                 </div>
