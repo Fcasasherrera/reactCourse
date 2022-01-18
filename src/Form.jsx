@@ -18,10 +18,25 @@ const Formulario = () => {
         })
     }
 
-    const enviarDatos = async (event) => {
+    const enviarDatos = async () => {
         let response;
         try {
             response = await axios.post('www.ruta.com/resultado', datos)
+        } catch (error) {
+            console.log(error);
+        }
+        if (response.status === 200) {
+            const { data } = response;
+            console.log(data);
+        } else {
+
+        }
+    }
+
+    const enviarDatosC = async (event, type) => {
+        let response;
+        try {
+            response = await axios[type]('www.ruta.com/resultado', datos)
         } catch (error) {
             console.log(error);
         }
